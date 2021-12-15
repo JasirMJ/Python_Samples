@@ -29,14 +29,29 @@ for pos,x in enumerate(casino_bet_values):
 
         bet_array.append(obj)
 
-# print("bet_array: ",bet_array)
-for x in bet_array:
-    print("bet value: ",x['bet_value']," and the position is: ",x['position']," and the amount is: ",x['amount'])
 
+def sortbyValue(x):
+    return x['bet_value']
+
+bet_array.sort(key=sortbyValue,reverse=True)
+
+cumulative_sum = 0
+won_bet_array = []
+for x in bet_array:
+    if cumulative_sum + x['amount'] <= max_winning_amount:
+        cumulative_sum += x['amount']
+        print("bet value: ",x['bet_value']," and the position is: ",x['position']," and the amount is: ",x['amount'])
+        won_bet_array.append(x)
 
 print("============== Game Summary =================")
 print("Owner profit: ",owner_profit)
+print("Max Won amt : ",cumulative_sum)
+print("Remaning profit amount : ",max_winning_amount - cumulative_sum)
 
+
+a = [ element["bet_value"] for element in max_winning_amount]
+# a =  [x.bet_value for x in max_winning_amount]
+print("Won bet arry ",a )
 # print('Remaning profit after winning: ',max_winning_amount - sum(wonbet_values))
 
 
