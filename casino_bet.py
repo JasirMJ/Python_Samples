@@ -38,6 +38,17 @@ print("============== Game Summary =================")
 print("Owner profit: ",owner_profit)
 print('Remaning profit after winning: ',max_winning_amount - sum(wonbet_values))
 
+
+# Result:
+# Total Bet Values :  3687
+# Max winning amount:  3318.3
+# ============== Calculating =================
+# Winning Possitions :  [1, 2, 4, 5]
+# Winning Values:  [900, 450, 90, 270]
+# ============== Game Summary =================
+# Owner profit:  368.7
+# Remaning profit after winning:  1608.3000000000002
+
 # Expected Output:
 # max won value : 3240
 # 250, 100, 10

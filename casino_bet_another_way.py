@@ -17,27 +17,33 @@ owner_profit = sum_of_casino_bet_values * owner_profit_perc / 100
 
 print('Max winning amount: ',max_winning_amount)
 wonbet_values = []
+wonbet_amount = []
 win_possitions = []
+
+bet_array = []
 print("============== Calculating =================")
 for pos,x in enumerate(casino_bet_values):
+    
+    if x*9 <= max_winning_amount:
+        obj = {'bet_value':x,'position':pos+1,'amount':x*9}
 
-    if sum(wonbet_values) <= max_winning_amount:
-        won_amt = sum(wonbet_values)+x*9
-        if won_amt <= max_winning_amount:
-            # print("ie ",won_amt," <= ",max_winning_amount)
-            # print("casino bet value is: ",x*9," and the position is: ",pos+1)
-            wonbet_values.append(x*9)
-            # print("wonbet_values: ",wonbet_values)
-            win_possitions.append(pos+1)
+        bet_array.append(obj)
 
-print("Winning Possitions : ",win_possitions)
-print("Winning Values: ",wonbet_values)
+# print("bet_array: ",bet_array)
+for x in bet_array:
+    print("bet value: ",x['bet_value']," and the position is: ",x['position']," and the amount is: ",x['amount'])
+
 
 print("============== Game Summary =================")
 print("Owner profit: ",owner_profit)
-print('Remaning profit after winning: ',max_winning_amount - sum(wonbet_values))
+
+# print('Remaning profit after winning: ',max_winning_amount - sum(wonbet_values))
+
+
 
 # Expected Output:
 # max won value : 3240
 # 250, 100, 10
+
+
 
